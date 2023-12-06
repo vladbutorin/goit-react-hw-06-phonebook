@@ -3,12 +3,12 @@ import contactsReducer from '../contactsSlice/contactsSlice';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-// Function declaration for persistedReducer
+
 function createPersistedReducer() {
     const persistConfig = {
         key: 'root',
         storage,
-        blacklist: ['register'], // Exclude 'register' from being persisted
+        blacklist: ['register'], 
     };
 
     return persistReducer(persistConfig, contactsReducer);
@@ -21,7 +21,7 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
-                ignoredActions: ['persist/PERSIST'], // Ignore specific actions
+                ignoredActions: ['persist/PERSIST'], 
             },
         }),
 });

@@ -13,21 +13,21 @@ const App = () => {
   const filter = useSelector((state) => state.filter);
 
   useEffect(() => {
-    // You can dispatch any initial actions here if needed
+
   }, []);
 
   const handleAddContact = (name, number) => {
-    // Dispatch the addContact action
+
     dispatch(addContact({ id: nanoid(), name, number }));
   };
 
   const handleDeleteContact = (id) => {
-    // Dispatch the deleteContact action
+
     dispatch(deleteContact(id));
   };
 
   const handleFilterChange = (e) => {
-    // Dispatch the setFilter action
+
     dispatch(setFilter(e.target.value));
   };
 
