@@ -5,7 +5,7 @@ import { addContact, deleteContact, setFilter } from './contactsSlice/contactsSl
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
-import { GlobalStyle } from './GlobalStyle ';
+import { GlobalStyle } from './GlobalStyle '; 
 
 const App = () => {
   const dispatch = useDispatch();
@@ -13,29 +13,24 @@ const App = () => {
   const filter = useSelector((state) => state.filter);
 
   useEffect(() => {
-
+    
   }, []);
 
   const handleAddContact = (name, number) => {
-
     dispatch(addContact({ id: nanoid(), name, number }));
   };
 
   const handleDeleteContact = (id) => {
-
     dispatch(deleteContact(id));
   };
 
   const handleFilterChange = (e) => {
-
     dispatch(setFilter(e.target.value));
   };
 
   const getFilteredContacts = () => {
     const normalizedFilter = filter.toLowerCase();
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
+    return contacts.filter((contact) => contact.name.toLowerCase().includes(normalizedFilter));
   };
 
   return (
@@ -43,15 +38,9 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
       <h2>Contacts</h2>
-      <Filter
-        title="Find contacts by name: "
-        value={filter}
-        onChange={handleFilterChange}
-      />
-      <ContactList
-        contacts={getFilteredContacts()}
-        onDeleteContact={handleDeleteContact}
-      />
+      <Filter title="Find contacts by name: " value={filter} onChange={handleFilterChange} />
+      <ContactList contacts={getFilteredContacts()} onDeleteContact={handleDeleteContact} />
+
       <GlobalStyle />
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Label, Input, Button } from './ContactForm.styled';
+import { Form, Label, Input, Button } from './ContactForm.styled'; 
 
 const ContactForm = ({ onAddContact }) => {
     const [name, setName] = useState('');
@@ -32,22 +32,9 @@ const ContactForm = ({ onAddContact }) => {
         <Form onSubmit={handleSubmit}>
             <div>
                 <Label>Name:</Label>
-                <Input
-                    type="text"
-                    name="name"
-                    value={name}
-                    onChange={handleInputChange}
-                    required
-                />
-
+                <Input type="text" name="name" value={name} onChange={handleInputChange} required />
                 <Label>Number:</Label>
-                <Input
-                    type="tel"
-                    name="number"
-                    value={number}
-                    onChange={handleInputChange}
-                    required
-                />
+                <Input type="tel" name="number" value={number} onChange={handleInputChange} required />
             </div>
             <Button type="submit">Add contact</Button>
         </Form>

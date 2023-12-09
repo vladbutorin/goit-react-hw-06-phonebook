@@ -8,6 +8,15 @@ const contactsSlice = createSlice({
     },
     reducers: {
         addContact: (state, action) => {
+            const isNameExists = state.items.some(
+                (contact) => contact.name.toLowerCase() === action.payload.name.toLowerCase()
+            );
+
+            if (isNameExists) {
+                alert(`The contact ${action.payload.name} already exists in the phonebook.`);
+                return;
+            }
+
             state.items.push(action.payload);
         },
         deleteContact: (state, action) => {
